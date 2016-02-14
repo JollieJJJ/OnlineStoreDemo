@@ -59,5 +59,6 @@ public class MainPage_Action extends LoadableComponent<MainPage_Action> {
 		Assert.assertEquals(mp.navbariPodsCategory.getText(), "iPods");
 		Assert.assertEquals(mp.navbarMacBooksCategory.getText(), "MacBooks");
 		Assert.assertEquals(mp.navbarAllProduct.getText(), "All Product");
+		pf.captureScreenShot(driver, "TC003_TS1_MainPage");
 	}
 }

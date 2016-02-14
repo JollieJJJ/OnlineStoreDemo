@@ -3,8 +3,9 @@
 <suite name="LoginSuite" parallel="none">
   <test name="Test">
     <classes>
-      <class name="executionScript.TestCase001_LoginCorrectly"/>
-      <class name="executionScript.TestCase002_LoginIncorrectly"/>
+      <class name="executionScript.TestCase001_LoginCorrectly" />
+      <class name="executionScript.TestCase002_LoginIncorrectly" />
+      <class name="executionScript.TestCase003_MainPageElements" />
     </classes>
   </test> <!-- Test -->
 </suite> <!-- LoginSuite -->

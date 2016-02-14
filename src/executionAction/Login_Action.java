@@ -46,7 +46,7 @@ public class Login_Action extends LoadableComponent<Login_Action> {
 	public void assertMainPageURL() {
 		Assert.assertEquals(mp.spanCheckOut.getAttribute("href"), "http://store.demoqa.com/products-page/checkout/");
 		Assert.assertEquals(mp.spanMyAccount.getAttribute("href"), "http://store.demoqa.com/products-page/your-account/");
-		pf.captureScreenShot(driver, "Login001_TS1_MainPage");
+		pf.captureScreenShot(driver, "TC001_TS1_MainPage");
 	}
 	
 	/**
@@ -65,7 +65,7 @@ public class Login_Action extends LoadableComponent<Login_Action> {
 			apbl.Username.sendKeys(dd.getCellDataasstring(i, 1));
 			apbl.Password.clear();
 			apbl.Password.sendKeys(dd.getCellDataasstring(i, 2));
-			pf.captureScreenShot(driver, i + "Login001_TS2_AccountPage");
+			pf.captureScreenShot(driver, i + "TC001_TS2_AccountPage");
 			apbl.btnLogin.click();
 			
 			if (sheetname.equals("001_LoginCorrectly")) {
@@ -86,7 +86,7 @@ public class Login_Action extends LoadableComponent<Login_Action> {
 		
 		apal.linkMetaLogOut.isDisplayed();
 		apal.linkLogOut.isDisplayed();
-		pf.captureScreenShot(driver, "Login001_TS3_AccountPageLoginSuccessfully");
+		pf.captureScreenShot(driver, "TC001_TS3_AccountPageLoginSuccessfully");
 		Assert.assertEquals(apal.linkHeaderWelcome.getText().substring(7), username);
 		apal.linkMetaLogOut.click();
 		Thread.sleep(2500);
