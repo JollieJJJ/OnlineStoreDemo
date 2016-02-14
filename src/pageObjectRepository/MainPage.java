@@ -28,4 +28,12 @@ public class MainPage {
 	public WebElement navbarMacBooksCategory;
 	@FindBy(xpath = ".//*[@id='menu-item-72']/a")
 	public WebElement navbarAllProduct;
+	@FindBy(xpath = ".//*[@id='slide_menu']/a[1]")
+	public WebElement slideshowItem1;
+	@FindBy(xpath = ".//*[@id='slide_menu']/a[2]")
+	public WebElement slideshowItem2;
+	@FindBy(xpath = ".//*[@id='slide_menu']/a[3]")
+	public WebElement slideshowItem3;
+	@FindBy(xpath = ".//*[@id='slides']/div[1]/div[1]/h2")
+	public WebElement slideshowTitle;
 }

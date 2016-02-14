@@ -61,4 +61,22 @@ public class MainPage_Action extends LoadableComponent<MainPage_Action> {
 		Assert.assertEquals(mp.navbarAllProduct.getText(), "All Product");
 		pf.captureScreenShot(driver, "TC003_TS1_MainPage");
 	}
+	
+	/**
+	 * Test the function of slide show
+	 * @throws InterruptedException 
+	 */
+	public void testSlideShowFunction() throws InterruptedException {
+		mp.slideshowItem1.click();
+		Thread.sleep(1500);
+		Assert.assertEquals(mp.slideshowTitle.getText(), _Constants.Slideshow_Title1);
+		
+		mp.slideshowItem2.click();
+		Thread.sleep(1500);
+		Assert.assertEquals(mp.slideshowTitle.getText(), _Constants.Slideshow_Title2);
+		
+		mp.slideshowItem3.click();
+		Thread.sleep(1500);
+		Assert.assertEquals(mp.slideshowTitle.getText(), _Constants.Slideshow_Title3);
+	}
 }

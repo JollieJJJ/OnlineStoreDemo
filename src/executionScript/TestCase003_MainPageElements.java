@@ -10,10 +10,12 @@ public class TestCase003_MainPageElements {
 	WebDriver driver = mpa.driver;
 	
 	@Test
-	public void testCase003_MainPageElements() {
+	public void testCase003_MainPageElements() throws InterruptedException {
 		mpa.get();
 		
 		mpa.assertMainPageNavBarElements();
+		
+		mpa.testSlideShowFunction();
 		
 		driver.close();
 	}
