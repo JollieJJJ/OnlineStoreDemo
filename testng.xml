@@ -6,6 +6,7 @@
       <class name="executionScript.TestCase001_LoginCorrectly" />
       <class name="executionScript.TestCase002_LoginIncorrectly" />
       <class name="executionScript.TestCase003_MainPageElements" />
+      <class name="executionScript.TestCase004_BrowseAccessories" />
     </classes>
   </test> <!-- Test -->
 </suite> <!-- LoginSuite -->

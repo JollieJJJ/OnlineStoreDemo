@@ -1,9 +1,14 @@
 package utility;
 
+import static org.junit.Assert.assertArrayEquals;
+
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -44,5 +49,37 @@ public class PublicFunctions {
 	public void mouseHoverToElement(WebDriver driver, WebElement element) {
 		Actions action = new Actions(driver);
 		action.moveToElement(element).perform();
+	}
+	
+	/**
+	 * Assert the product contents including product name, price and others
+	 * @param sheetname
+	 * @param expectedContents
+	 * @param actualContents
+	 * @param column
+	 * @param driver
+	 * @param contents
+	 * @param className
+	 * @throws Exception
+	 */
+	public void assertProdcutContents(String sheetname, List<String> expectedContents, List<String> actualContents, int column, WebDriver driver, List<WebElement> contents, String className) throws Exception {
+		// Assert the product name of products
+		ExcelUtils dd = new ExcelUtils(
+				"D:\\Documents\\workspace\\selenium\\OnlineStoreDemo\\src\\dataEngine\\DataEngine.xlsx",
+				sheetname);
+		expectedContents = new ArrayList<String>();
+		actualContents = new ArrayList<String>();
+
+		// Get expected product names from the excel
+		for (int i = 1; i < dd.excel_get_rows(); i++) {
+			expectedContents.add(dd.getCellDataasstring(i, column));
+		}
+
+		// Get actual product names from the web element
+		contents = driver.findElements(By.className(className));
+		for (WebElement content : contents) {
+			actualContents.add(content.getText());
+		}
+		assertArrayEquals(expectedContents.toArray(), actualContents.toArray());
 	}
 }
