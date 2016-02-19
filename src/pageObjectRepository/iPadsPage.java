@@ -3,8 +3,8 @@ package pageObjectRepository;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AccessoriesPage {
-	@FindBy(xpath = ".//*[@id='post-105']/header/h1")
+public class iPadsPage {
+	@FindBy(xpath = ".//*[@id='post-95']/header/h1")
 	public WebElement txtHeader;
 	@FindBy(className = "pp_previous")
 	public WebElement linkPrevious;

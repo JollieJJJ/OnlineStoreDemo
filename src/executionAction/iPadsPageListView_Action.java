@@ -12,42 +12,41 @@ import org.openqa.selenium.support.ui.LoadableComponent;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import pageObjectRepository.AccessoriesPage;
+import pageObjectRepository.iPadsPage;
 import utility.PublicFunctions;
 
 import config._Constants;
 
-public class AccessoriesPageListView_Action extends LoadableComponent<AccessoriesPageListView_Action> {
+public class iPadsPageListView_Action extends LoadableComponent<iPadsPageListView_Action> {
 	PublicFunctions pf = new PublicFunctions();
-	AccessoriesPage ap = new AccessoriesPage();
+	iPadsPage ipdp = new iPadsPage();
 	public WebDriver driver;
 	
-	public AccessoriesPageListView_Action() {
+	public iPadsPageListView_Action() {
 		// TODO Auto-generated constructor stub
 		driver = new FirefoxDriver();
-		PageFactory.initElements(driver, ap);
+		PageFactory.initElements(driver, ipdp);
 	}
 	
 	@Override
 	protected void load() {
 		// TODO Auto-generated method stub
-		driver.navigate().to(_Constants.URLAccessoriesPageList);
+		driver.navigate().to(_Constants.URLiPadsPageList);
 		driver.manage().window().maximize();
 	}
 	
 	@Override
 	protected void isLoaded() throws Error {
 		// TODO Auto-generated method stub
-		Assert.assertTrue(driver.getTitle().equals(_Constants.AccessoriesPage_Title));
+		Assert.assertTrue(driver.getTitle().equals(_Constants.iPadsPage_Title));
 	}
 
 	/**
 	 * Assert the accessories's page text
-	 * @throws InterruptedException 
 	 */
-	public void assertPageText() throws InterruptedException {
-		Assert.assertEquals(ap.txtHeader.getText(), "Accessories");
-		pf.captureScreenShot(driver, "TC004_TS1_AccessoriesPageListView");
+	public void assertPageText() {
+		Assert.assertEquals(ipdp.txtHeader.getText(), "iPads");
+		pf.captureScreenShot(driver, "TC006_TS1_iPadsPageListView");
 	}
 	
 	/**
@@ -57,7 +56,7 @@ public class AccessoriesPageListView_Action extends LoadableComponent<Accessorie
 	public void assertProductContentsListView(String sheetname) throws Exception {
 		// Assert the number of products
 		List<WebElement> products = driver.findElements(By.className("default_product_display"));
-		Assert.assertEquals(products.size(), 6);
+		Assert.assertEquals(products.size(), 3);
 		
 		// Assert the product name of products
 		List<String> expectedProdcutNames = null;
@@ -72,7 +71,6 @@ public class AccessoriesPageListView_Action extends LoadableComponent<Accessorie
 		pf.assertProdcutContents(sheetname, expectedProdcutPrices, actualProdcutPrices, 2, driver, productPrices,"currentprice");
 	}
 	
-	
 	/**
 	 * View product image
 	 * @throws InterruptedException 
@@ -85,14 +83,14 @@ public class AccessoriesPageListView_Action extends LoadableComponent<Accessorie
 			
 			// Conditional wait for the visible of one element
 			WebDriverWait wait = new WebDriverWait(driver, 15);
-			wait.until(ExpectedConditions.visibilityOf(ap.linkPrevious));
+			wait.until(ExpectedConditions.visibilityOf(ipdp.linkPrevious));
 			
-			ap.linkPrevious.click();
+			ipdp.linkPrevious.click();
 			Thread.sleep(1000);
-			ap.linkNext.click();
+			ipdp.linkNext.click();
 			Thread.sleep(1000);
 		
-			ap.linkClose.click();
+			ipdp.linkClose.click();
 			Thread.sleep(3000);
 		}
 	}

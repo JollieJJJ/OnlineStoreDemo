@@ -10,41 +10,41 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 import org.testng.Assert;
 
-import pageObjectRepository.AccessoriesPage;
+import pageObjectRepository.MacBooksPage;
 import utility.PublicFunctions;
 
 import config._Constants;
 
-public class AccessoriesPageGridView_Action extends LoadableComponent<AccessoriesPageGridView_Action> {
+public class MacBooksPageGridView_Action extends LoadableComponent<MacBooksPageGridView_Action> {
 	PublicFunctions pf = new PublicFunctions();
-	AccessoriesPage ap = new AccessoriesPage();
+	MacBooksPage mbp = new MacBooksPage();
 	public WebDriver driver;
 	
-	public AccessoriesPageGridView_Action() {
+	public MacBooksPageGridView_Action() {
 		// TODO Auto-generated constructor stub
 		driver = new FirefoxDriver();
-		PageFactory.initElements(driver, ap);
+		PageFactory.initElements(driver, mbp);
 	}
 	
 	@Override
 	protected void load() {
 		// TODO Auto-generated method stub
-		driver.navigate().to(_Constants.URLAccessoriesPageGrid);
+		driver.navigate().to(_Constants.URLMacBooksPageGrid);
 		driver.manage().window().maximize();
 	}
 	
 	@Override
 	protected void isLoaded() throws Error {
 		// TODO Auto-generated method stub
-		Assert.assertTrue(driver.getTitle().equals(_Constants.AccessoriesPage_Title));
+		Assert.assertTrue(driver.getTitle().equals(_Constants.MacBooksPage_Title));
 	}
 
 	/**
 	 * Assert the accessories's page text
 	 */
 	public void assertPageText() {
-		Assert.assertEquals(ap.txtHeader.getText(), "Accessories");
-		pf.captureScreenShot(driver, "TC004_TS1_AccessoriesPageGridView");
+		Assert.assertEquals(mbp.txtHeader.getText(), "MacBooks");
+		pf.captureScreenShot(driver, "TC009_TS1_MacBooksPageGridView");
 	}
 	
 	/**
@@ -54,7 +54,7 @@ public class AccessoriesPageGridView_Action extends LoadableComponent<Accessorie
 	public void assertProductContentsGridView(String sheetname) throws Exception {
 		// Assert the number of products
 		List<WebElement> products = driver.findElements(By.className("product_grid_item"));
-		Assert.assertEquals(products.size(), 6);
+		Assert.assertEquals(products.size(), 2);
 		
 		// Assert the product name of products
 		List<String> expectedProdcutNames = null;

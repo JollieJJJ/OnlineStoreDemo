@@ -1,7 +1,5 @@
 package utility;
 
-import static org.junit.Assert.assertArrayEquals;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,6 +12,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 public class PublicFunctions {
 	
@@ -80,6 +79,6 @@ public class PublicFunctions {
 		for (WebElement content : contents) {
 			actualContents.add(content.getText());
 		}
-		assertArrayEquals(expectedContents.toArray(), actualContents.toArray());
+		Assert.assertEquals(actualContents.toArray(), expectedContents.toArray());
 	}
 }
